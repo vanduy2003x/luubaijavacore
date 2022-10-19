@@ -1,0 +1,200 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+import java.time.LocalDate;
+
+public class Employee {
+    private String id;
+    private String ten;
+    private LocalDate ngaysinh;
+    private String gioitinh;
+    private double luong;
+
+    public String getId() {
+        return this.id;
+    }
+
+    public Employee() {
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTen() {
+        return this.ten;
+    }
+
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
+
+    public LocalDate getNgaysinh() {
+        return this.ngaysinh;
+    }
+
+    public void setNgaysinh(LocalDate ngaysinh) {
+        this.ngaysinh = ngaysinh;
+    }
+
+    public String getGioitinh() {
+        return this.gioitinh;
+    }
+
+    public void setGioitinh(String gioitinh) {
+        this.gioitinh = gioitinh;
+    }
+
+    public double getLuong() {
+        return this.luong;
+    }
+
+    public void setLuong(double luong) {
+        this.luong = luong;
+    }
+
+    public String toString() {
+        return "Employee{\t ID: " + this.id + "\t Tên nhân viên: " + this.ten + "\t Ngày Sinh: " + this.ngaysinh + "\t Giới Tính: '" + this.gioitinh + "\t luong=" + this.luong + " ";
+    }
+}
+
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public Main() {
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Employee> employees = new ArrayList();
+        Employee nv = new Employee();
+        LocalDate date1 = LocalDate.of(1977, 1, 28);
+        nv.setId("Nv01");
+        nv.setTen("Trần Văn Đêm");
+        nv.setNgaysinh(date1);
+        nv.setGioitinh("nam");
+        nv.setLuong(10.0);
+        Employee nv1 = new Employee();
+        LocalDate date = LocalDate.of(1987, 6, 28);
+        nv1.setId("Nv02");
+        nv1.setTen("Ngô Bích Thảo");
+        nv1.setNgaysinh(date);
+        nv1.setGioitinh("nữ");
+        nv1.setLuong(13.0);
+        Employee nv2 = new Employee();
+        LocalDate date2 = LocalDate.of(2000, 1, 8);
+        nv2.setId("Nv03");
+        nv2.setTen("Lê Thị Lệ Diễm");
+        nv2.setNgaysinh(date2);
+        nv2.setGioitinh("nữ");
+        nv2.setLuong(11.5);
+        Employee nv3 = new Employee();
+        LocalDate date3 = LocalDate.of(1981, 12, 28);
+        nv3.setId("Nv04");
+        nv3.setTen("Đinh Trọng Quốc");
+        nv3.setNgaysinh(date3);
+        nv3.setGioitinh("nam");
+        nv3.setLuong(19.0);
+        Employee nv4 = new Employee();
+        LocalDate date4 = LocalDate.of(1999, 8, 14);
+        nv4.setId("Nv05");
+        nv4.setTen("Đỗ Văn Thạo");
+        nv4.setNgaysinh(date4);
+        nv4.setGioitinh("nữ");
+        nv4.setLuong(16.0);
+        employees.add(nv);
+        employees.add(nv1);
+        employees.add(nv2);
+        employees.add(nv3);
+        employees.add(nv4);
+        System.out.println(employees);
+        System.out.println("Mời bạn chọn");
+        System.out.println("Bạn muốn chọn nhân viên theo tiêu chí:\n 1.Theo ID.\n 2.Theo Tên.\n Moi ban chon:");
+        int a = (new Scanner(System.in)).nextInt();
+        int i;
+        int j;
+        switch (a) {
+            case 1:
+                System.out.println("Mời bạn nhập ID");
+                String nameid = (new Scanner(System.in)).nextLine();
+
+                for(i = 0; i < employees.size(); ++i) {
+                    if (((Employee)employees.get(i)).getId().contains(nameid)) {
+                    }
+
+                    System.out.println(((Employee)employees.get(i)).toString());
+                }
+            case 2:
+                System.out.println("Mời bạn nhập tên muốn tìm");
+                String name = (new Scanner(System.in)).nextLine();
+
+                for(j = 0; j < employees.size(); ++j) {
+                    if (((Employee)employees.get(j)).getTen().contains(name)) {
+                        System.out.println(((Employee)employees.get(j)).toString());
+                    }
+                }
+        }
+
+        System.out.println("Đếm số nhân viên nam,nữ");
+        System.out.println("Bạn muốn tìm xem có bao nhiêu nhân viên:\n 1.Nam .\n 2.Nữ.\n   Moi ban chon:");
+        int sex = (new Scanner(System.in)).nextInt();
+        i = 0;
+        j = 0;
+        int random;
+        switch (sex) {
+            case 1:
+                for(random = 0; random < employees.size(); ++random) {
+                    if (((Employee)employees.get(random)).getGioitinh().equals("nam")) {
+                        ++i;
+                    }
+                }
+
+                System.out.println(i);
+                break;
+            case 2:
+                for(random = 0; random < employees.size(); ++random) {
+                    if (((Employee)employees.get(random)).getGioitinh().equals("nữ")) {
+                        ++j;
+                    }
+                }
+
+                System.out.println(j);
+        }
+
+        System.out.println(i);
+        System.out.println("Những nhân viên trên 30 tuổi");
+
+        for(random = 0; random < employees.size(); ++random) {
+            if (LocalDate.now().getYear() - ((Employee)employees.get(random)).getNgaysinh().getYear() > 30) {
+                System.out.println(((Employee)employees.get(random)).toString());
+            }
+        }
+
+        System.out.println("Mời bạn nhập tháng sinh nhật muốn tìm");
+        random = (new Scanner(System.in)).nextInt();
+
+        int i;
+        for(i = 0; i < employees.size(); ++i) {
+            if (((Employee)employees.get(i)).getNgaysinh().getMonth().getValue() == random) {
+                System.out.println(((Employee)employees.get(i)).toString());
+            }
+        }
+
+        System.out.println("In ra top 3 người có lương tháng cao nhất");
+
+        for(i = 0; i < employees.size(); ++i) {
+            if (((Employee)employees.get(i)).getLuong() >= 13.0) {
+                System.out.println(((Employee)employees.get(i)).toString());
+            }
+        }
+
+    }
+}
